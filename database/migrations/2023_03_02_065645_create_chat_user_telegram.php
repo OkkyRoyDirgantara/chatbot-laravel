@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('chat_user_telegram', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_admin')->unique()->default(1234);
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('id_user');
+            $table->string('message')->nullable();
+            $table->boolean('is_seen')->default(false)->nullable();
             $table->timestamps();
+            $table->foreign('id_user')->references('id_user')->on('users_telegram')->onDelete('cascade');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('chat_user_telegram');
     }
 };
