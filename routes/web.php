@@ -30,8 +30,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin/dashboard');
     Route::post('dashboard/stop-bot', [DashboardController::class, 'stopBot'])->name('admin/dashboard/stop-bot');
     Route::get('dashboard/start-bot', function () {
-        $output = shell_exec('python D:\Development\python\telegram-bot\a.py');
-        dd($output);
+        shell_exec('nohup python3 /var/www/html/mitigasi-banjir-py/main.py &');
+        return redirect()->route('admin/dashboard');
     })->name('admin/dashboard/start-bot');
 
     Route::get('users', [UsersTelegramController::class, 'index'])->name('admin/users');
