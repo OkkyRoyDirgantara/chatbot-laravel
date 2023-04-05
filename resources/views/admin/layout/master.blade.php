@@ -18,12 +18,13 @@
         }
         @media (max-width: 576px) {
             main {
-                margin-bottom: 100px;
+                margin-bottom: 150px;
             }
         }
         @media (max-width: 576px) {
             footer {
                 width: 100%;
+                height: 130px;
             }
         }
     </style>
@@ -41,7 +42,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline text-md-end">
-                        <li class="list-inline-item"><a href="https://t.me/banjir_lamongan_bot">Bot Banjir</a></li>
+                        <li class="list-inline-item"><a href="https://t.me/banjir_lamongan_bot" target="_blank">Bot Banjir</a></li>
                         @guest
                             <li class="list-inline-item"><a href="mailto:okkyroydirgantara@gmail.com">Contact Us</a></li>
                         @endguest
