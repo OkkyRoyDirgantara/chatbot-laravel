@@ -94,7 +94,7 @@
                         </div>
                         @else
                         <div class="card-footer text-muted text-center">
-                            <a href="{{ route('admin/dashboard/start-bot') }}" class="btn btn-success"> Start Bot</a>
+                            <p>Bot dimatikan silahkan jalankan di server</p>
                         </div>
                     @endif
                 </div>
