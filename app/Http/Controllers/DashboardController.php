@@ -47,12 +47,14 @@ class DashboardController extends Controller
 
     public function startBot()
     {
-        shell_exec('python D:\Development\python\telegram-bot\main.py');
+        exec('sudo systemctl start nohup');
+        sleep(3);
         return redirect()->route('admin/dashboard');
     }
     public function stopBot()
     {
-        DB::table('bot_status')->update(['is_run' => false]);
+        exec('sudo systemctl stop nohup');
+        sleep(3);
         return redirect()->route('admin/dashboard');
     }
 
