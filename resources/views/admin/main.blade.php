@@ -87,19 +87,57 @@
                     </div>
                     @if($botStatus->is_run == 1)
                         <div class="card-footer text-muted text-center">
-                            <form action="{{ route('admin/dashboard/stop-bot') }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-danger">Stop Bot</button>
-                            </form>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#stopBotModal">Stop Bot</button>
                         </div>
                         @else
                         <div class="card-footer text-muted text-center">
-                            <form action="{{ route('admin/dashboard/start-bot') }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-success">Start Bot</button>
-                            </form>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#startBotModal">Start Bot</button>
                         </div>
                     @endif
+                    @if($botStatus->is_run == 1)
+                    <div class="modal fade" id="stopBotModal" tabindex="-1" aria-labelledby="stopBotModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="stopBotModalLabel">Konfirmasi Menghentikan Bot</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin menghentikan bot? Tindakan ini dapat mematikan Bot Telegram.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    <form action="{{ route('admin/dashboard/stop-bot') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Stop Bot</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                        <div class="modal fade" id="startBotModal" tabindex="-1" aria-labelledby="startBotModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="startBotModalLabel">Konfirmasi Memulai Bot</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Apakah Anda yakin ingin memulai bot? Tindakan ini akan mengaktifkan Bot Telegram.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <form action="{{ route('admin/dashboard/start-bot') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success">Start Bot</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
