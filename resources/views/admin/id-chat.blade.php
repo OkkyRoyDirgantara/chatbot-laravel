@@ -134,7 +134,7 @@ $pesan = $chatAdmin->merge($chatUser->userTelegram)->sortBy('created_at');
                         @csrf
                         <div class="input-group mt-3">
                             <input type="hidden" name="id_user" value="{{$chatUser->id_user}}">
-                            <input type="text" name="message" class="form-control" placeholder="Ketik pesan...">
+                            <input type="text" name="message" class="form-control" placeholder="Ketik pesan..." autocomplete="off">
                             <button class="btn btn-primary">Send</button>
                         </div>
                     </form>
