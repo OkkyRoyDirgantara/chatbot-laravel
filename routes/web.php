@@ -29,8 +29,8 @@ Route::get('/', function () {
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin/dashboard');
     Route::post('dashboard/stop-bot', [DashboardController::class, 'stopBot'])->name('admin/dashboard/stop-bot');
-    Route::get('dashboard/start-bot', function () {
-        shell_exec('nohup python3 /var/www/html/mitigasi-banjir-py/main.py &');
+    Route::post('dashboard/start-bot', function () {
+        shell_exec('systemctl start nohup');
         return redirect()->route('admin/dashboard');
     })->name('admin/dashboard/start-bot');
 

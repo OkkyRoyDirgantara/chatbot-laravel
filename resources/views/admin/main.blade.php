@@ -94,7 +94,10 @@
                         </div>
                         @else
                         <div class="card-footer text-muted text-center">
-                            <p>Bot dimatikan silahkan jalankan di server</p>
+                            <form action="{{ route('admin/dashboard/start-bot') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-success">Start Bot</button>
+                            </form>
                         </div>
                     @endif
                 </div>
