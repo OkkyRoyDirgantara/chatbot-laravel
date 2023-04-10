@@ -13,11 +13,16 @@ class BotStatusSeeder extends Seeder
      */
     public function run(): void
     {
+        // if exist delete all
+        DB::table('bot_status')->delete();
+        // insert new
         DB::table('bot_status')->insert([
+            'id' => 1,
             'is_run' => false,
             'run_at' => null,
         ]);
         DB::table('bot_status')->insert([
+            'id' => 2,
             'is_run' => false,
             'run_at' => null
         ]);
