@@ -144,7 +144,7 @@
             <div class="col-md-4 mt-2">
                 <div class="card bg-light mb-3 h-100">
                     <div class="card-header text-center">
-                        Service CuacaW
+                        Service Cuaca
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between">
                         @if($serviceCuaca->is_run == 1)
