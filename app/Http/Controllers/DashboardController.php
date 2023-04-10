@@ -82,6 +82,7 @@ class DashboardController extends Controller
      */
     public function stopServiceCuaca()
     {
+        DB::table('bot_status')->where('id', 2)->update(['is_run' => true, 'stop_at' => Carbon::now()]);
         exec('sudo systemctl stop cuaca');
         sleep(3);
         return redirect()->route('admin/dashboard');
