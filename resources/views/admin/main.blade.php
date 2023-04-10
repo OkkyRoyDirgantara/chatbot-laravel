@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <form action="{{ route('admin/dashboard/start-cuaca') }}" method="post">
+                                        <form action="{{ route('admin/dashboard/stop-cuaca') }}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Stop Service Cuaca</button>
                                         </form>
