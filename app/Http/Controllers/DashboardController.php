@@ -23,7 +23,8 @@ class DashboardController extends Controller
         $lastCreatedAt = ChatUserTelegram::latest('created_at')->pluck('created_at')->first();
         $lastTime = $lastCreatedAt ? Carbon::parse($lastCreatedAt)->diffForHumans() : null;
 
-        $botStatus = DB::table('bot_status')->first();
+        $botStatus = DB::table('bot_status')->where('id', 1)->first();
+        $serviceCuaca = DB::table('bot_status')->where('id', 2)->first();
 
         $countMessageUnread = ChatUserTelegram::all()->where('is_seen', '=', false)->count();
 
@@ -32,10 +33,14 @@ class DashboardController extends Controller
         //        show uptime from run_at to now
         // $upTime = $botStatus->run_at ? Carbon::parse($botStatus->run_at)->diffForHumans($now) : null;
         $upTime = $botStatus->run_at ? Carbon::parse($botStatus->run_at)->diff($now)->format('%dd %hh %im %ss') : null;
+        $upTimeCuaca = $serviceCuaca->run_at ? Carbon::parse($serviceCuaca->run_at)->diff($now)->format('%dd %hh %im %ss') : null;
+
         return view('admin.main', [
             'chatToday' => $chatToday,
             'lastTime' => $lastTime,
             'botStatus' => $botStatus,
+            'serviceCuaca' => $serviceCuaca,
+            'upTimeCuaca' => $upTimeCuaca,
             'upTime' => $upTime,
             'countMessageUnread' => $countMessageUnread,
             'lastId' => $lastId,]);
@@ -51,9 +56,33 @@ class DashboardController extends Controller
         sleep(3);
         return redirect()->route('admin/dashboard');
     }
+
+    /*
+     * stop bot
+     */
     public function stopBot()
     {
         exec('sudo systemctl stop nohup');
+        sleep(3);
+        return redirect()->route('admin/dashboard');
+    }
+
+    /*
+     * start service cuaca
+     */
+    public function startServiceCuaca()
+    {
+        exec('sudo systemctl start cuaca');
+        sleep(3);
+        return redirect()->route('admin/dashboard');
+    }
+
+    /*
+     * stop service cuaca
+     */
+    public function stopServiceCuaca()
+    {
+        exec('sudo systemctl stop cuaca');
         sleep(3);
         return redirect()->route('admin/dashboard');
     }

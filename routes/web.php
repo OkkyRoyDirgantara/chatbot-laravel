@@ -28,8 +28,12 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('admin/dashboard');
+
     Route::post('dashboard/stop-bot', [DashboardController::class, 'stopBot'])->name('admin/dashboard/stop-bot');
     Route::post('dashboard/start-bot', [DashboardController::class, 'startBot'])->name('admin/dashboard/start-bot');
+
+    Route::post('dashboard/stop-cuaca', [DashboardController::class, 'startServiceCuaca'])->name('admin/dashboard/stop-cuaca');
+    Route::post('dashboard/start-cuaca', [DashboardController::class, 'stopServiceCuaca'])->name('admin/dashboard/start-cuaca');
 
     Route::get('users', [UsersTelegramController::class, 'index'])->name('admin/users');
     Route::get('users/{id}', [UsersTelegramController::class, 'show'])->name('admin/users/{id}');
