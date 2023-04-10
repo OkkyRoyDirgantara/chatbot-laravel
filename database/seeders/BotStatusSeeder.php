@@ -17,5 +17,9 @@ class BotStatusSeeder extends Seeder
             'is_run' => false,
             'run_at' => null,
         ]);
+        DB::table('bot_status')->insert([
+            'is_run' => false,
+            'run_at' => null
+        ]);
     }
 }
