@@ -104,9 +104,6 @@
     }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<?php
-$pesan = $chatAdmin->merge($chatUser->userTelegram)->sortBy('created_at');
-?>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
