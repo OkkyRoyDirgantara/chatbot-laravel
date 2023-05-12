@@ -36,7 +36,7 @@
                             @method('PUT')
                             <div class="mb-3">
                                 <label for="editCommand{{$cmd->id}}" class="form-label">Command</label>
-                                <input type="text" class="form-control" id="editCommand{{$cmd->id}}" value="{{$cmd->command}}" readonly>
+                                <input type="text" class="form-control" id="editCommand{{$cmd->id}}" value="{{$cmd->command}}" readonly disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="editDescription{{$cmd->id}}" class="form-label">Deskripsi</label>
