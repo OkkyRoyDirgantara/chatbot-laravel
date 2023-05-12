@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('message_broadcast', function (Blueprint $table) {
+        Schema::create('command', function (Blueprint $table) {
             $table->id();
-            $table->string('message', 5000);
-            $table->boolean('is_send')->default(false)->nullable();
+            $table->string('command')->nullable();
+            $table->string('description', 5000)->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('message_broadcast');
+        Schema::dropIfExists('command');
     }
 };

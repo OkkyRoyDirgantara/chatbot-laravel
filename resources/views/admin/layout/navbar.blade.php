@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('admin/broadcast-message') ? 'active' : '' }}" href="{{ route('admin/broadcast-message') }}">Broadcast</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/command') ? 'active' : '' }}" href="{{ route('admin/command') }}">Command</a>
+                    </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a>

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageBroadcastController;
 use App\Http\Controllers\UsersTelegramController;
+use App\Http\Controllers\WeathersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -45,6 +47,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('broadcast-message', [MessageBroadcastController::class, 'index'])->name('admin/broadcast-message');
     Route::post('broadcast-message/send', [MessageBroadcastController::class, 'store'])->name('admin/broadcast-message/send');
     Route::post('broadcast-message/resend', [MessageBroadcastController::class, 'resend'])->name('admin/broadcast-message/resend');
+
+    Route::get('command', [CommandController::class, 'index'])->name('admin/command');
+    Route::put('command', [CommandController::class, 'update'])->name('admin/command/update');
+
+    Route::get('weathers', [WeathersController::class, 'index'])->name('admin/weathers');
 });
 
 Route::get('/login', function () {

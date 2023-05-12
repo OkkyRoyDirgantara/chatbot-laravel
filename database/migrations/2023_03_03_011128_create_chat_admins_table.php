@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_admin');
             $table->unsignedBigInteger('id_user');
-            $table->string('message');
+            $table->string('message', 5000);
             $table->boolean('is_send')->default(false)->nullable();
             $table->timestamps();
             $table->foreign('id_user')->references('id_user')->on('users_telegram')->onDelete('cascade');

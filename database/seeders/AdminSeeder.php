@@ -13,6 +13,9 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+        // if exist delete all
+        User::truncate();
+        // insert new
         User::create([
             'name' => 'Admin',
             'email' => 'okkyroydirgantara@gmail.com',
