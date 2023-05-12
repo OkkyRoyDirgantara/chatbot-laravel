@@ -10,7 +10,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h5>{{$cmd->command}}</h5>
-                            <p>{!! nl2br($cmd->description)!!}</p>
+                            <p>{!! nl2br(e($cmd->description))!!}</p>
                         </div>
                         <div>
                             <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#editModal{{$cmd->id}}">Edit</button>

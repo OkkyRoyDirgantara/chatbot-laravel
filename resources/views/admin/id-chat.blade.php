@@ -113,12 +113,12 @@
                         @foreach($pesan as $message)
                             @if($message->id_user == $chatUser->id_user && $message->id_admin != 1234)
                                 <div class="message-received">
-                                    <p>{{$message->message}}</p>
+                                    <p>{!! nl2br(e($message->message)) !!}</p>
                                     <span class="time">{{$message->created_at}}</span>
                                 </div>
                             @else
                                 <div class="message-sent">
-                                    <p>{{$message->message}}</p>
+                                    <p>{!! nl2br(e($message->message)) !!}</p>
                                     <span class="time">{{$message->created_at}}</span>
                                     @if($message->is_send != 0)
                                         <span class="checkmark">&#10003;</span>
