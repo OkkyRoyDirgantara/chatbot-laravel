@@ -15,32 +15,7 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.open('my-cache').then(function(cache) {
-            return cache.match(event.request).then(function(response) {
-                if (response) {
-                    return response; // Mengembalikan respons dari cache jika tersedia
-                }
-
-                return fetch(event.request).then(function(networkResponse) {
-                    if (!networkResponse || networkResponse.status !== 200) {
-                        return networkResponse; // Mengembalikan respons dari server jika tidak ada di cache atau tidak berhasil diambil dari server
-                    }
-
-                    var cacheResponse = networkResponse.clone(); // Clone respons dari server
-
-                    var cacheExpiration = 60 * 60 * 24; // TTL dalam detik (di sini, cache akan kadaluwarsa dalam 24 jam)
-                    var cacheExpirationOptions = {
-                        expiration: cacheExpiration
-                    };
-
-                    caches.open('my-cache').then(function(cache) {
-                        cache.put(event.request, cacheResponse, cacheExpirationOptions); // Menyimpan respons di cache dengan TTL
-                    });
-
-                    return networkResponse; // Mengembalikan respons dari server
-                });
-            });
-        }).catch(function(error) {
+        fetch(event.request).catch(function(error) {
             // Tangani kesalahan jaringan
             console.error('Error fetching:', error);
 
