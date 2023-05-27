@@ -286,11 +286,5 @@
             document.getElementById("uptimeCuaca").innerHTML = uptimeStringCuaca;
             document.getElementById("uptime").innerHTML = uptimeString;
         }, 1000);
-
-        // Set the completed and remaining tasks
-        var tasksCompleted = 10;
-        var tasksRemaining = 5;
-        // document.getElementById("tasks-completed").innerHTML = tasksCompleted;
-        document.getElementById("tasks-remaining").innerHTML = tasksRemaining;
     </script>
 @endsection

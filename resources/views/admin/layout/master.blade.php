@@ -10,7 +10,7 @@
 
     <meta name="description" content="Pembuatan Chatbot untuk Mitigasi dan Evakuasi Banjir di Lamongan">
     <meta name="author" content="Okky Roy Dirgantara">
-    <meta name="keywords" content="chatbot, telegram, mitigasi, evakuasi, banjir, lamongan">
+    <meta name="keywords" content="pembuatan, chatbot, telegram, mitigasi, evakuasi, banjir, lamongan">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="google" content="notranslate">
