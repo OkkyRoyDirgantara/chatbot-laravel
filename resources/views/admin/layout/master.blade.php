@@ -18,32 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="manifest" href="/manifest.json">
-    <style>
-        .container {
-            margin-bottom: 100px;
-        }
-        .navbar-nav .nav-item .nav-link:hover {
-            background-color: #eee;
-            color: #333;
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 70px;
-        }
-        @media (max-width: 576px) {
-            main {
-                margin-bottom: 150px;
-            }
-        }
-        @media (max-width: 576px) {
-            footer {
-                width: 100%;
-                height: 130px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     @include('admin.layout.navbar')

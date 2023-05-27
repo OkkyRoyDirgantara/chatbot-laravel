@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! captcha_img('flat') !!}
+                                <img src="{!! captcha_src('flat') !!}" alt="Captcha Image" class="img-fluid">
                                 <input id="captcha" type="text" class="form-control mt-2" placeholder="Enter Captcha" name="captcha" required>
                             </div>
 
@@ -45,9 +45,6 @@
                                 <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                             </div>
                         </form>
-                        <div class="mt-3">
-                            <script src='https://www.google.com/recaptcha/api.js'></script>
-                        </div>
                     </div>
                 </div>
             </div>
