@@ -75,7 +75,7 @@ class ChatController extends Controller
             return redirect()->route('admin/message')->with('error', 'User not found !');
         }
 
-        $pesan = $chatAdmin->merge($chatUser->userTelegram)->sortBy('created_at');
+        $pesan = $chatAdmin->merge($chatUser->userTelegram)->sortBy('created_at')->where('created_at', '>=', now()->subDays(7));
 
         return view('admin.id-chat', ['chatUser' => $chatUser, 'users' => $users, 'chatAdmin' => $chatAdmin, 'pesan' => $pesan]);
     }
