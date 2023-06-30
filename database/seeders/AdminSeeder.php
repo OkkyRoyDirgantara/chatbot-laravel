@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\ChatAdmin;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class AdminSeeder extends Seeder
 {
@@ -13,9 +16,7 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        // if exist delete all
-        User::truncate();
-        // insert new
+        DB::table('users')->delete();
         User::create([
             'name' => 'Admin',
             'email' => 'okkyroydirgantara@gmail.com',
