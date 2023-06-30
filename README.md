@@ -2,36 +2,36 @@
 
 Clone this project
 
-    ```bash
-    git clone https://github.com/OkkyRoyDirgantara/chatbot-laravel.git
-    ```
+```bash
+git clone https://github.com/OkkyRoyDirgantara/chatbot-laravel.git
+```
 
 Install composer dependencies
 
-    ```bash
-    composer install
-    ```
+```bash
+composer install
+```
 
-configuration .env
+copy and configuration .env
 
-        ```bash
-        cp .env.example .env
-        ```
+```bash
+cp .env.example .env
+```
 
 Generate key
 
-        ```bash
-        php artisan key:generate
-        ```
+```bash
+php artisan key:generate
+```
 
 Run migration
 
-        ```bash
-        php artisan migrate
-        ```
+```bash
+php artisan migrate
+```
 
 Run seed
 
-            ```bash
-            php artisan db:seed
-            ```
+```bash
+php artisan db:seed
+```
